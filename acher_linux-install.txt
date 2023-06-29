@@ -1,0 +1,63 @@
+############################################################  
+# 1  # loadkeys br-abnt2                       # sda1 boot #
+# 2  # locale-gen                              # sda2 swap #
+# 3  # export LANG=pt_BR.UTF-8                 # sda3 ext4 #
+############################################################
+# 4  # formatar o disco /boot /swap /ext4, etc....     #   #
+# 5  # mkfs.fat -F32 /dev/sda1  #bios-boot-normal#     #   #
+# 6  # mkswap /dev/sda2                                #   #
+# 7  # swapon /dev/sda2                                #   #
+# 8  # mkfs.ext4 /dev/sda3                             #   #
+# 9  # mount /dev/sda3 /mnt                            #   #
+# 10 # ls /mnt                                         #   #
+# 11 # mkdir /mnt/boot                                 #   #
+# 12 # mkdir /mnt/boot/efi                             #   #
+# 13 # mkdir /mnt/home  #é o correto mas eu não uso#   #   #
+# 14 # mount /dev/sda1 /mnt/boot/efi                   #   #
+# 15 # mount /dev/sda3 /mnt/home                       #   #
+# 16 # swapon /dev/sda2                                #   #
+# 17 # pacstrap /mnt base linux linux-firmware         #   #
+# 18 # leva 10 minutos                                 #   #
+# 19 # genfstab -U -p /mnt >> /mnt/etc/fstab           #   #
+# 20 # cat /mnt/etc/fstab # E so para ver uuid #       #   #
+# 21 # arch-chroot /mnt                                #   #
+########################################################################
+# 22 # ls -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime     #
+# 23 # hwclock --systohc                                               #
+# 24 # nano /etc/local.gen  # pt-BR UTF-8 UTF-8 #                      #
+# 25 # locale-gen                                                      #
+# 26 # echo LANG=pt_BR.UTF-8 >> /etc/locale.conf                       #
+# 27 # cat /etc/locale.conf   # para ver o arquivo #                   #
+# 28 # echo KEYMAP=br-abnt2 >> /etc/vcomsole.conf                      #
+##########################################################################
+# 29 # echo /etc/hostname >> pc01                                        #
+# 30 # echo /etc/hosts >> 127.0.0.1 localhost.localdomain localhost      #
+# 40 # echo /etc/hosts >> 127.0.0.1 pc01.localdomain pc01                #
+# 41 # echo /etc/hosts >> ::1 localhost.localdomain localhost            #
+# 42 # echo /etc/hosts >> ::1 pc01.localdomain pc01                      #
+############################################################################
+# 43 # passwd  # sua senha não perca #                                     #
+# 44 # useradd # nome de usuário #                                         #
+# 45 # useradd -m -g users -G wheel # nome do usuário #                    #
+###############################################################################
+# 46 # pacman -S dosfstools os-prober mtools                                  #
+# 47 # pacman -S network-manager-applet networkmanager                        #
+# 48 # pacman -S wpa-supplicant wireless_tools dialog                         #
+# 49 # pacman -S sudo                                                         #
+###############################################################################
+# 50 # nano /etc/sudoers # add # nome de usuário ALL=(ALL)ALL                 #
+#############################################################################################################
+# 51 # pacman -S grub-efi-x86_64 efibootmgr                                                                 #
+# 52 # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=linux_grub_ufi --recheck  #
+# 53 # cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo                             #
+# 54 # grub-mkcomfig -o /boot/grub/grub.cfg                                                 #ufi-boot#      #
+################################################################################################################
+# 55 # pacman -S grub                                                                       #bios-boot-normal# #
+# 56 # grub-install --target=i386-pc --recheck /dev/sda                                                        #
+# 57 # cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo                                #
+################################################################################################################
+# 58 # 
+# 59 #
+# 60 # 
+
+#
