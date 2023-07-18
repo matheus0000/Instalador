@@ -13,7 +13,3 @@ sudo dhclient
 sudo ip link set enp0s3 down
 sudo ip link set enp0s3 up
 ##########################################################################
-
-# fdisk -l
-# mount /dev/sda(1,2,3) /mnt 
-# arch-chroot /mnt 
