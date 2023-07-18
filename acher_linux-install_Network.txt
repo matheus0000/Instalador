@@ -1,0 +1,19 @@
+##########################################################################
+sudo pacman -Syu
+sudo pacman -S NetworkManager network-manager-applet nm-connection-editor dhcpcd
+sudo systemctl disable systemd-resolve
+sudo systemctl disable systemd-network
+sudo systemctl enable NetworkManager
+sudo systemctl start  NetworkManager
+##########################################################################
+sudo systemctl enable dhcpcd.service
+sudo systemctl start dhcpcd.service
+sudo dhcpcd enp0s3
+sudo dhclient 
+sudo ip link set enp0s3 down
+sudo ip link set enp0s3 up
+##########################################################################
+
+# fdisk -l
+# mount /dev/sda(1,2,3) /mnt 
+# arch-chroot /mnt 
