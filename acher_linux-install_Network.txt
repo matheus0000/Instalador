@@ -1,15 +1,43 @@
 ##########################################################################
+# Instalação e configuração do NetworkManager
+
+# Atualizar os repositórios e pacotes
+
 sudo pacman -Syu
+
+# Instalar NetworkManager e ferramentas relacionadas
+
 sudo pacman -S NetworkManager network-manager-applet nm-connection-editor dhcpcd
-sudo systemctl disable systemd-resolve
+
+# Desativar e parar os serviços systemd-resolved e systemd-network
+
+sudo systemctl disable systemd-resolved
 sudo systemctl disable systemd-network
+
+# Habilitar e iniciar o serviço do NetworkManager
+
 sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+
+#
 sudo systemctl start  NetworkManager
-##########################################################################
+#
+
+# Configuração manual da interface de rede (opcional)
+
+# Habilitar e iniciar o serviço dhcpcd para a interface
+
 sudo systemctl enable dhcpcd.service
 sudo systemctl start dhcpcd.service
-sudo dhcpcd enp0s3
-sudo dhclient 
-sudo ip link set enp0s3 down
-sudo ip link set enp0s3 up
+
+# Conectar-se manualmente usando dhcpcd e dhclient
+
+sudo dhcpcd enp0s3  # Substitua enp0s3 pelo nome da sua interface de rede
+sudo dhclient  # Solicitar um endereço IP
+
+# Gerenciar o estado da interface de rede
+
+sudo ip link set enp0s3 down  # Desativar a interface
+sudo ip link set enp0s3 up    # Ativar a interface
+
 ##########################################################################
