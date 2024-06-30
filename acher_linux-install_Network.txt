@@ -19,10 +19,6 @@ sudo systemctl disable systemd-network
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 
-#
-sudo systemctl start  NetworkManager
-#
-
 # Configuração manual da interface de rede (opcional)
 
 # Habilitar e iniciar o serviço dhcpcd para a interface
